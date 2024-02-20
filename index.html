@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="main.css">
+        <title>calculator</title>
+    </head>
+    <body>
+        <div class="calc-container">
+            <div class="calculator">
+                <form id="calculatorForm">
+                    <div class="calc-screen">
+                        <div id="calc-typed"></div>
+                        <div id="calc-operation"></div>                  
+                    </div>
+                    <div>
+                        <input type="button" value="AC" class="orange" id="allClear">
+                        <input type="button" value="&#x232B;" class="orange" id="clear">                                       
+                        <input type="button" value="%" class="orange" id="percent">
+                        <input type="button" value="&divide;" class="orange" id="divide">
+                    </div>                        
+                    <div>
+                        <input type="button" value="7" class="numb" id="seven">
+                        <input type="button" value="8" class="numb" id="eight">
+                        <input type="button" value="9" class="numb" id="nine">
+                        <input type="button" value="x" class="orange" id="multiply">
+                    </div>                
+                    <div>
+                        <input type="button" value="4" class="numb" id="four">
+                        <input type="button" value="5" class="numb" id="five">
+                        <input type="button" value="6" class="numb" id="six">
+                        <input type="button" value="&minus;" class="orange" id="subtract">
+                    </div>
+                    <div>
+                        <input type="button" value="1" class="numb" id="one">
+                        <input type="button" value="2" class="numb" id="two">
+                        <input type="button" value="3" class="numb" id="three">
+                        <input type="button" value="&plus;" class="orange" id="add">
+                    </div>
+                    <div>
+                        <input type="button" value="00" class="numb" id="doubleZero">
+                        <input type="button" value="0" class="numb" id="zero">
+                        <input type="button" value="&equals;" id="equals">
+                    </div>
+                </form>
+                <!-- <div id="history">
+                    <h1 class="hidden-history">History</h1>
+                </div> -->
+            </div>
+        </div>     
+
+        <script src="./script.js"></script>
+    </body>
+</html>

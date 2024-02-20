@@ -1,0 +1,148 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  background: #ffb178;
+}
+
+.calc-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.calculator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  background: #2a3a48;
+  padding-bottom: 45px;
+  padding-top: 45px;
+  border-radius: 60px;
+  margin: 60px;
+}
+
+.calculator input {
+  border: 0;
+  outline: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  box-shadow: -2px -2px 5px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.2);
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.calc-screen {
+background-color: #2e3e4d;
+border-radius:  10px;
+margin:  10px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+padding:  10px;
+min-height:  100px; 
+}
+
+#calc-operation {
+    font-size:  4rem;
+    text-align: right;
+    color: #fff;
+    min-height:  30px; 
+    margin-bottom:  10px; 
+    flex-shrink:  1;
+  }
+  
+  #calc-typed {
+    font-size:  2.5rem;
+    text-align: right;
+    color: #fff;
+    flex-shrink:  1;
+  }
+
+input.orange {
+  color: #d6884c;
+}
+
+.calculator form input.numb {
+  color: #77838d;
+}
+
+#del {
+  border: 0;
+  outline: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  box-shadow: -2px -2px 5px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.2);
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+
+#equals {
+  border: 0;
+  outline: 0;
+  width: 140px;
+  height: 60px;
+  border-radius: 10px;
+  box-shadow: -2px -2px 5px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.2);
+  background: #ed802e;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 10px;
+  color: white;
+}
+
+.calculator input:hover {
+  box-shadow: 0px 0px 38px 0px rgba(255, 255, 255, 0.1);
+}
+
+#equals:hover {
+  box-shadow: 0px 0px 38px 0px rgba(255, 255, 255, 0.1);
+}
+
+@media only screen and (max-width: 489px) {
+  .calculator {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  .calculator form input {
+    margin: 5px;
+  }
+
+  #equal {
+    width: 130px;
+    margin-top: 5px;
+    margin-right: 5px;
+  }
+}
+
+
+/* #history {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.hidden-history {
+    display: none;
+} 
+
+@media (min-width:  768px) {
+    .hidden-history {
+        display: block;
+    }
+} */
+
+
