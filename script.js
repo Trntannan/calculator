@@ -10,6 +10,12 @@ const add = document.getElementById("add");
 const equals = document.getElementById("equals");
 const numbers = document.querySelectorAll(".numb");
 
+// light mode
+const checkbox = document.getElementById("checkbox")
+checkbox.addEventListener("change", () => {
+  document.body.classList.toggle("light-mode")
+})
+
 allClear.addEventListener("click", clearAll);
 clear.addEventListener("click", clearLast);
 percent.addEventListener("click", calculatePercent);

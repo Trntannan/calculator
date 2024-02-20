@@ -6,13 +6,21 @@
         <link rel="stylesheet" href="main.css">
         <title>calculator</title>
     </head>
-    <body>
+    <body class="dark-mode">
         <div class="calc-container">
             <div class="calculator">
                 <form id="calculatorForm">
                     <div class="calc-screen">
                         <div id="calc-typed"></div>
                         <div id="calc-operation"></div>                  
+                    </div>
+                    <div>
+                        <input type="checkbox" class="checkbox" id="checkbox">
+                        <label for="checkbox" class="checkbox-label">
+                          <!-- <i class="fas fa-moon"></i>
+                          <i class="fas fa-sun"></i> -->
+                          <span class="ball"></span>
+                        </label>
                     </div>
                     <div>
                         <input type="button" value="AC" class="orange" id="allClear">
@@ -39,8 +47,8 @@
                         <input type="button" value="&plus;" class="orange" id="add">
                     </div>
                     <div>
-                        <input type="button" value="00" class="numb" id="doubleZero">
                         <input type="button" value="0" class="numb" id="zero">
+                        <input type="button" value="." class="numb" id="decimal">
                         <input type="button" value="&equals;" id="equals">
                     </div>
                 </form>

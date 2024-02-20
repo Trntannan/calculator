@@ -1,9 +1,14 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap"); */
+
+* {box-sizing: border-box;}
+
 body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
   background: #ffb178;
+  min-height: 100vh;
 }
 
 .calc-container {
@@ -15,6 +20,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   flex-grow: 1;
   background: #2a3a48;
   padding-bottom: 45px;
@@ -32,7 +38,7 @@ body {
   box-shadow: -2px -2px 5px rgba(255, 255, 255, 0.1),
     5px 5px 15px rgba(0, 0, 0, 0.2);
   background: transparent;
-  font-size: 20px;
+  font-size: 2rem;
   cursor: pointer;
   margin: 10px;
 }
@@ -49,19 +55,17 @@ min-height:  100px;
 }
 
 #calc-operation {
-    font-size:  4rem;
+    font-size:  4vw;
     text-align: right;
     color: #fff;
     min-height:  30px; 
     margin-bottom:  10px; 
-    flex-shrink:  1;
   }
   
   #calc-typed {
-    font-size:  2.5rem;
+    font-size:  2.5vw;
     text-align: right;
     color: #fff;
-    flex-shrink:  1;
   }
 
 input.orange {
@@ -96,7 +100,7 @@ input.orange {
   box-shadow: -2px -2px 5px rgba(255, 255, 255, 0.1),
     5px 5px 15px rgba(0, 0, 0, 0.2);
   background: #ed802e;
-  font-size: 20px;
+  font-size: 2.5rem;
   cursor: pointer;
   margin: 10px;
   color: white;
@@ -110,7 +114,94 @@ input.orange {
   box-shadow: 0px 0px 38px 0px rgba(255, 255, 255, 0.1);
 }
 
-@media only screen and (max-width: 489px) {
+/* Light mode toggle */
+.checkbox {
+  opacity: 0;
+  position: absolute; 
+}
+
+input#checkbox.checkbox {
+  position: absolute;
+  top:  0;
+  left:  0; 
+}
+
+.checkbox-label {
+  background-color: #111;
+  width: 30px;
+  height: 16px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.checkbox-label .ball {
+  background-color: #fff;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(15px);
+}
+
+
+/* Light Mode */
+
+.light-mode .calculator {
+  background: white; 
+}
+
+.light-mode .calc-screen {
+  background-color: white; 
+}
+
+.light-mode #calc-operation {
+  color: #000000;
+}
+
+.light-mode #calc-typed {
+  color: #77838d; 
+}
+
+.light-mode input.orange {
+  color: #77838d; 
+}
+
+.light-mode .calculator form input.numb {
+  color: #77838d; 
+}
+
+.light-mode #equals {
+  background: #ed802e; 
+  color: white; 
+}
+
+.light-mode .calculator input:hover,
+.light-mode #equals:hover {
+  box-shadow:   0px   0px   38px   0px rgba(0,   0,   0,   0.1); /* Darker shadow on hover */
+}
+
+.light-mode .checkbox-label {
+  background-color: #fff;
+  outline: #111 solid 2px;
+}
+
+.light-mode .checkbox-label .ball {
+  background-color: #111;
+}
+
+@media (max-width: 489px) {
   .calculator {
     margin-left: 40px;
     margin-right: 40px;
@@ -124,6 +215,32 @@ input.orange {
     width: 130px;
     margin-top: 5px;
     margin-right: 5px;
+  }
+}
+
+@media (max-width:   600px) {
+  .calculator input {
+    font-size:  1.5rem; /* Adjust as needed */
+    width:  50px; /* Adjust as needed */
+    height:  50px; /* Adjust as needed */
+  }
+  #equals {
+    font-size:  2rem; /* Adjust as needed */
+    width:  120px; /* Adjust as needed */
+    height:  50px; /* Adjust as needed */
+  }
+}
+
+@media (min-width:   1200px) {
+  .calculator input {
+    font-size:  2.5rem; /* Adjust as needed */
+    width:  70px; /* Adjust as needed */
+    height:  70px; /* Adjust as needed */
+  }
+  #equals {
+    font-size:  3rem; /* Adjust as needed */
+    width:  160px; /* Adjust as needed */
+    height:  70px; /* Adjust as needed */
   }
 }
 
