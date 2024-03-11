@@ -1,99 +1,54 @@
-const calcOperation = document.getElementById("calc-operation");
-const calcTyped = document.getElementById("calc-typed");
-const allClear = document.getElementById("allClear");
-const clear = document.getElementById("clear");
-const percent = document.getElementById("percent");
-const divide = document.getElementById("divide");
-const multiply = document.getElementById("multiply");
-const subtract = document.getElementById("subtract");
-const add = document.getElementById("add");
-const equals = document.getElementById("equals");
-const numbers = document.querySelectorAll(".numb");
+document.addEventListener("DOMContentLoaded", function() {
+  let calcTyped = document.getElementById("calc-typed");
+  let calcOperation = document.getElementById("calc-operation");
 
-// light mode
+  calcTyped.innerText = "0";
+  calcOperation.innerText = "0";
+
+  function clearDisplay() {
+      calcTyped.innerText = "0";
+      calcOperation.innerText = "0";
+  }
+
+  function calculateResult() {
+      try {
+          let result = eval(calcTyped.innerText);
+          calcOperation.innerText = result;
+          calcTyped.innerText = calcTyped.innerText + " =";
+      } catch (error) {
+          calcTyped.innerText = "Error";
+          calcOperation.innerText = "0";
+      }
+  }
+
+  function backspace() {
+      calcTyped.innerText = calcTyped.innerText.slice(0, -1);
+      if (calcTyped.innerText === "") {
+          calcTyped.innerText = "0";
+      }
+  }
+
+  let buttons = document.querySelectorAll("input[type=button]");
+  buttons.forEach(function(button) {
+      button.addEventListener("click", function() {
+          if (button.value === "AC") {
+              clearDisplay();
+          } else if (button.value === "DE") {
+              backspace();
+          } else if (button.value === "=") {
+              calculateResult();
+          } else {
+              if (calcTyped.innerText === "0" && button.value !== ".") {
+                  calcTyped.innerText = button.value;
+              } else {
+                  calcTyped.innerText += button.value;
+              }
+          }
+      });
+  });
+});
+
 const checkbox = document.getElementById("checkbox")
 checkbox.addEventListener("change", () => {
   document.body.classList.toggle("light-mode")
 })
-
-allClear.addEventListener("click", clearAll);
-clear.addEventListener("click", clearLast);
-percent.addEventListener("click", calculatePercent);
-divide.addEventListener("click", setOperation.bind(null, "/"));
-multiply.addEventListener("click", setOperation.bind(null, "*"));
-subtract.addEventListener("click", setOperation.bind(null, "-"));
-add.addEventListener("click", setOperation.bind(null, "+"));
-equals.addEventListener("click", calculateResult);
-numbers.forEach((number) => number.addEventListener("click", appendNumber));
-
-
-calcTyped.textContent = currentTyped;
-
-function setOperation(operation) {
-  currentTyped += operation;
-  calcTyped.textContent = currentTyped;
-}
-
-function appendNumber(event) {
-  const lastCharIsOperation = currentTyped.slice(-1).match(/[\+\-\*\/]/);
-  currentTyped =
-    currentTyped === "0" && !lastCharIsOperation
-      ? event.target.value
-      : currentTyped + event.target.value;
-  calcTyped.textContent = currentTyped;
-}
-
-function clearAll() {
-  currentOperation = "";
-  currentTyped = "0";
-  calcTyped.textContent = currentTyped;
-  calcOperation.textContent = "";
-//   history = [];
-//   displayHistory();
-}
-
-function clearLast() {
-  currentTyped = currentTyped.slice(0, -1);
-  if (currentTyped === "") {
-    currentTyped = "0";
-  }
-}
-
-function calculatePercent() {
-  currentTyped = (parseFloat(currentTyped) / 100).toString();
-  calcTyped.textContent = currentTyped;
-}
-
-function calculateResult() {
-  currentOperation += currentTyped;
-  try {
-    const result = eval(currentOperation);
-    calcTyped.textContent = currentTyped + "=";
-    calcOperation.textContent = result;
-    currentTyped = result.toString();
-  } catch (error) {
-    alert("Invalid operation");
-  }
-}
-
-// function calculateResult() {
-//     currentOperation += currentTyped;
-//     try {
-//         const result = eval(currentOperation);
-//         calcOperation.textContent = '=' + result;
-//         currentTyped = result.toString();
-//         history.push({ operation: currentOperation, result: result });
-//         displayHistory();
-//     } catch (error) {
-//         alert('Invalid operation');
-//     }
-// }
-
-// function displayHistory() {
-//     historyList.innerHTML = '';
-//     history.forEach((entry, index) => {
-//         const listItem = document.createElement('li');
-//         listItem.textContent = `${entry.operation} = ${entry.result}`;
-//         historyList.appendChild(listItem);
-//     });
-// }

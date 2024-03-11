@@ -10,50 +10,49 @@
         <div class="calc-container">
             <div class="calculator">
                 <form id="calculatorForm">
-                    <div class="calc-screen">
+                    <div id="display">
                         <div id="calc-operation"></div>
                         <div id="calc-typed"></div>                  
                     </div>
                     <div>
                         <input type="checkbox" class="checkbox" id="checkbox">
                         <label for="checkbox" class="checkbox-label">
-                          <span class="ball"></span>
+                            <span class="ball"></span>
                         </label>
                     </div>
                     <div>
-                        <input type="button" value="AC" class="orange" id="allClear">
-                        <input type="button" value="&#x232B;" class="orange" id="clear">                                       
-                        <input type="button" value="%" class="orange" id="percent">
-                        <input type="button" value="&divide;" class="orange" id="divide">
-                    </div>                        
-                    <div>
-                        <input type="button" value="7" class="numb" id="seven">
-                        <input type="button" value="8" class="numb" id="eight">
-                        <input type="button" value="9" class="numb" id="nine">
-                        <input type="button" value="x" class="orange" id="multiply">
-                    </div>                
-                    <div>
-                        <input type="button" value="4" class="numb" id="four">
-                        <input type="button" value="5" class="numb" id="five">
-                        <input type="button" value="6" class="numb" id="six">
-                        <input type="button" value="&minus;" class="orange" id="subtract">
+                        <input type="button" value="AC" onclick="clearDisplay()" class="orange">
+                        <input type="button" value="DE" onclick="backspace()" class="orange">
+                        <input type="button" value="%" onclick="display.value += '%' " class="operator orange">
+                        <input type="button" value="/" onclick="display.value += '/' " class="operator orange">
                     </div>
                     <div>
-                        <input type="button" value="1" class="numb" id="one">
-                        <input type="button" value="2" class="numb" id="two">
-                        <input type="button" value="3" class="numb" id="three">
-                        <input type="button" value="&plus;" class="orange" id="add">
+                        <input type="button" value="7" onclick="display.value += '7' " class="numb">
+                        <input type="button" value="8" onclick="display.value += '8' " class="numb">
+                        <input type="button" value="9" onclick="display.value += '9' " class="numb">
+                        <input type="button" value="*" onclick="display.value += '*' " class="operator orange">
                     </div>
                     <div>
-                        <input type="button" value="0" class="numb" id="zero">
-                        <input type="button" value="." class="numb" id="decimal">
-                        <input type="button" value="&equals;" id="equals">
+                        <input type="button" value="4" onclick="display.value += '4' " class="numb">
+                        <input type="button" value="5" onclick="display.value += '5' " class="numb">
+                        <input type="button" value="6" onclick="display.value += '6' " class="numb">
+                        <input type="button" value="-" onclick="display.value += '-' " class="operator orange">
+                    </div>
+                    <div>
+                        <input type="button" value="1" onclick="display.value += '1' " class="numb">
+                        <input type="button" value="2" onclick="display.value += '2' " class="numb">
+                        <input type="button" value="3" onclick="display.value += '3' " class="numb">
+                        <input type="button" value="+" onclick="display.value += '+' " class="operator orange">
+                    </div>
+                    <div>
+                        <input type="button" value="0" onclick="display.value += '0' " class="numb">
+                        <input type="button" value="." onclick="display.value += '.' " class="numb">
+                        <input type="button" value="=" onclick="calculateResult()" id="equals">
+                    
                     </div>
                 </form>
-                <!-- <div id="history">
-                    <h1 class="hidden-history">History</h1>
-                </div> -->
-            </div>
+            
+            </div>                               
         </div>     
 
         <script src="./script.js"></script>
