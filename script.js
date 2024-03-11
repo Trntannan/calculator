@@ -26,9 +26,6 @@ add.addEventListener("click", setOperation.bind(null, "+"));
 equals.addEventListener("click", calculateResult);
 numbers.forEach((number) => number.addEventListener("click", appendNumber));
 
-let currentOperation = "";
-let currentTyped = "0";
-// let history = [];
 
 calcTyped.textContent = currentTyped;
 
@@ -60,7 +57,6 @@ function clearLast() {
   if (currentTyped === "") {
     currentTyped = "0";
   }
-  calcTyped.textContent = currentTyped;
 }
 
 function calculatePercent() {
