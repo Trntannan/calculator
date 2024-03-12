@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", function() {
             calcOperation.innerText = result;
             calcTyped.innerText = calcTyped.innerText + " =";
         } catch (error) {
-            calcTyped.innerText = "Error";
-            calcOperation.innerText = "0";
+            calcTyped.innerText = "0";
+            calcOperation.innerText = "Error";
         }
     }
 
