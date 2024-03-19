@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
-  let calcTyped = document.getElementById("calc-typed");
-  let calcOperation = document.getElementById("calc-operation");
+    let calcTyped = document.getElementById("calc-typed");
+    let calcOperation = document.getElementById("calc-operation");
 
-  calcTyped.innerText = "0";
-  calcOperation.innerText = "0";
+    calcTyped.innerText = "0";
+    calcOperation.innerText = "0";
 
     function clearDisplay() {
         calcTyped.innerText = "0";
@@ -29,9 +29,17 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    let buttons = document.querySelectorAll("input[type=button]");
+    function calcInput(value) {
+        if (calcTyped.innerText === "0" && value !== ".") {
+            calcTyped.innerText = value;
+        } else {
+            calcTyped.innerText += value;
+        }
+    }
+
+    const buttons = document.querySelectorAll("input[type=button]");
     buttons.forEach(function(button) {
-        button.addEventListener("click", function() {
+        button.onclick = function() {
             if (button.value === "AC") {
                 clearDisplay();
             } else if (button.value === "DE") {
@@ -39,17 +47,13 @@ document.addEventListener("DOMContentLoaded", function() {
             } else if (button.value === "=") {
                 calculateResult();
             } else {
-                if (calcTyped.innerText === "0" && button.value !== ".") {
-                    calcTyped.innerText = button.value;
-                } else {
-                    calcTyped.innerText += button.value;
-                }
+                calcInput(button.value);
             }
-        });
+        };
     });
-});
 
-const checkbox = document.getElementById("checkbox")
-checkbox.addEventListener("change", () => {
-  document.body.classList.toggle("light-mode")
+    const checkbox = document.getElementById("checkbox");
+        checkbox.onclick = function() {
+        document.body.classList.toggle("light-mode");
+    };
 });
